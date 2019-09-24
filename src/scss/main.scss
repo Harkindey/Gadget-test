@@ -1,3 +1,237 @@
-.cart {
-    margin-top: 10px
+.App {
+    width: 100%;
+    height: 100%;
+    background-color: #EEEEEE;
+    padding-bottom: 30px;
+}
+
+.Container {
+    height: 100%;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.header {
+    padding-top: 30px
+}
+
+.cartButton {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+
+
+
+    &__box {
+        background-color: #8DCAFF;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+
+        &:hover {
+            background-color: rgb(166, 212, 253);
+        }
+    }
+
+    p {
+        color: #fff;
+        margin-top: 15px;
+        margin-left: 10px
+    }
+
+
+
+    &__number {
+        background-color: #fff;
+        margin-left: 10px;
+        width: 25px;
+        height: 20px;
+        border-radius: 4px;
+        text-align: center;
+
+        h6 {
+            color: #000;
+            margin-bottom: 0
+        }
+    }
+}
+
+.Cart {
+    &__item {
+        border-bottom: 1px solid #f2f2f2;
+
+        &-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__Subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__product {
+        &-description {
+            display: flex
+        }
+
+        &-img {
+            flex: 0 0 30%;
+            padding: 10px;
+
+            img {
+                width: 100%
+            }
+        }
+
+        &-text {
+            flex: 0 0 70%;
+
+            p {
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__counter {
+        display: flex;
+        background-color: #fff;
+        border: 1px solid #d8d8d8;
+        border-radius: .2px;
+        font-size: .9375rem;
+        height: 1.875rem;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        width: 6.25rem;
+
+        .decrement,
+        .increment {
+            box-shadow: none;
+            color: #b9b9b9;
+            cursor: pointer;
+            font-size: 1.375rem;
+            line-height: .9375rem;
+            outline: none;
+            padding: 0;
+            text-align: center;
+            width: 1.875rem;
+            border-right: .0625rem solid #d8d8d8;
+        }
+
+        .count {
+            line-height: 1.75rem;
+            white-space: nowrap;
+            width: 2.5rem;
+        }
+    }
+
+}
+
+.Products {
+    .title {
+        margin: 20px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+
+.items {
+    margin-top: 20px;
+}
+
+.product {
+    background-color: #fff;
+    padding: 10px;
+
+    &__img {
+        img {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &__amount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .formerAmount {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: #878888;
+        }
+    }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Button {
+    background-color: transparent;
+    border: .0625rem solid #8DCAFF;
+    color: rgb(152, 204, 250);
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+    width: 100%;
+    padding: 10px;
+
+    &:hover:enabled {
+        background-color: #8DCAFF;
+        color: #fff;
+    }
+
+    &:focus,
+    &:active {
+        outline: none
+    }
+}
+
+.customModal {
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 0rem;
+        pointer-events: none;
+        height: 100vh;
+    }
+
+    @media (min-width: 576px) {
+        .modal-dialog {
+            max-width: 500px;
+            margin: 0 0 0 auto;
+            height: 100vh;
+        }
+    }
+
+    .modal-content {
+        height: 100%;
+    }
+
+    &__Body {
+        height: 100%;
+    }
+
+    &__Footer {
+        display: flex;
+        flex-direction: column;
+    }
 }
