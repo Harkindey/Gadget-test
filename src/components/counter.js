@@ -1,21 +1,35 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+
+const initialState = { count: 1 };
+
+function reducer(state, action) {
+	switch (action.type) {
+		case 'increment':
+			return { count: state.count + 1 };
+		case 'decrement':
+			if (state.count === 1) return;
+			return { count: state.count - 1 };
+		default:
+			throw new Error();
+	}
+}
 
 export const CartCounter = () => {
-	const [count, setCount] = useState(1);
-	const increment = () => {
-		setCount(count + 1);
-	};
-	const decrement = () => {
-		if (count === 1) return;
-		setCount(count - 1);
-	};
+	const [state, dispatch] = useReducer(reducer, initialState);
+
 	return (
 		<div class="Cart__counter">
-			<button onClick={decrement} className="decrement">
+			<button
+				onClick={() => dispatch({ type: 'decrement' })}
+				className="decrement"
+			>
 				-
 			</button>
-			<div class="count">{count}</div>
-			<button onClick={increment} className="increment">
+			<div class="count">{state.count}</div>
+			<button
+				onClick={() => dispatch({ type: 'increment' })}
+				className="increment"
+			>
 				+
 			</button>
 		</div>
