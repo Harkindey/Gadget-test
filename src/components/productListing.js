@@ -4,24 +4,26 @@ import { Row, Col, Spinner } from 'react-bootstrap';
 import { Button } from '.';
 
 const Product = ({ data, setCartingList }) => {
+	const addDefaultSrc = ev => {
+		ev.target.src = './noimage.png';
+	};
 	return (
 		<Col md={3} className="items">
 			<div className="product">
 				<div className="product__img">
-					<img src={data.img} alt="product" />
+					<img src={data.img} alt="product" onError={addDefaultSrc} />
 				</div>
 				<div className="product__description">
 					<p className="product__title">{data.name}</p>
 					<div className="product__amount">
-						<p>&#8358;{data.price}</p>{' '}
+						<p>&#8358;{data.price.toLocaleString('en')}</p>{' '}
 						<p className="formerAmount">
-							&#8358;{data.formerPrice}
+							&#8358;{data.formerPrice.toLocaleString('en')}
 						</p>
 					</div>
 				</div>
 				<Button
 					onClick={() => {
-						console.log('added');
 						setCartingList({
 							type: 'Add',
 							payload: data,

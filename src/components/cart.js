@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
 import { Button, CartCounter } from '.';
 
 const CartItem = ({ data, setCartingList, parent }) => {
+	const addDefaultSrc = ev => {
+		ev.target.src = './noimage.png';
+	};
 	return (
 		<Col sm={12} className="Cart__item">
 			<div className="Cart__product-description">
 				<div className="Cart__product-img">
-					<img src={data.product.img} alt="" />
+					<img
+						src={data.product.img}
+						alt=""
+						onError={addDefaultSrc}
+					/>
 				</div>
 				<div className="Cart__product-text">
 					<p>{data.product.name}</p>
-					<p> &#8358; {data.product.price}</p>
+					<p> &#8358; {data.product.price.toLocaleString('en')}</p>
 				</div>
 			</div>
 			<div className="Cart__item-bottom">
@@ -27,7 +34,6 @@ const CartItem = ({ data, setCartingList, parent }) => {
 								type: 'Delete',
 								productId: data.product.productId,
 							});
-							console.log(parent);
 						}}
 					>
 						X Remove Item
@@ -46,6 +52,23 @@ export const Cart = ({
 	cartinglist,
 }) => {
 	const keys = Object.keys(cartinglist);
+	const [subtotal, setSubtotal] = useState(0);
+
+	useEffect(
+		() => {
+			function subtotalCalculation() {
+				const subtotal = keys.reduce((total, currentKey) => {
+					return (total =
+						total +
+						cartinglist[currentKey].product.price *
+							cartinglist[currentKey].quantity);
+				}, 0);
+				setSubtotal(subtotal);
+			}
+			subtotalCalculation();
+		},
+		[cartinglist]
+	);
 
 	return (
 		<Modal show={show} onHide={handleClose} className="customModal">
@@ -68,7 +91,7 @@ export const Cart = ({
 			</Modal.Body>
 			<Modal.Footer className="customModal__Footer">
 				<div className="Cart__Subtotal">
-					<p>SubTotal</p> <p>&#8358; 000,000</p>
+					<p>SubTotal</p> <p>&#8358; {subtotal}</p>
 				</div>
 				<Button onClick={() => {}}>Checkout</Button>
 			</Modal.Footer>
