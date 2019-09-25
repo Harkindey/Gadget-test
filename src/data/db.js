@@ -1,4 +1,4 @@
-module.export = {
+export const Data = {
 	init: () => {
 		localStorage.clear();
 		localStorage.setItem(

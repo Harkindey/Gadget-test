@@ -18,14 +18,14 @@ export const CartCounter = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<div class="Cart__counter">
+		<div className="Cart__counter">
 			<button
 				onClick={() => dispatch({ type: 'decrement' })}
 				className="decrement"
 			>
 				-
 			</button>
-			<div class="count">{state.count}</div>
+			<div className="count">{state.count}</div>
 			<button
 				onClick={() => dispatch({ type: 'increment' })}
 				className="increment"
