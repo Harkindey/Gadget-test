@@ -6,7 +6,7 @@ import { ProductListing, Header, Cart } from './components';
 import { Api } from './data/api';
 import { omit } from 'lodash';
 
-const initialState = {};
+const initialState = JSON.parse(localStorage.getItem('cart')) || {};
 
 function reducer(state, action) {
 	switch (action.type) {
@@ -46,6 +46,16 @@ function App() {
 	const [show, setCartState] = useState(false);
 	const [products, setProducts] = useState([]);
 	const [cartinglist, setCartingList] = useReducer(reducer, initialState);
+
+	useEffect(
+		() => {
+			function persistCart() {
+				localStorage.setItem('cart', JSON.stringify(cartinglist));
+			}
+			persistCart();
+		},
+		[cartinglist]
+	);
 
 	const handleClose = () => setCartState(false);
 	const handleShow = () => setCartState(true);

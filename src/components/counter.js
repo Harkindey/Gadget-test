@@ -3,9 +3,9 @@ import React, { useReducer, useEffect } from 'react';
 function reducer(state, action) {
 	switch (action.type) {
 		case 'increment':
-			return  state + 1;
+			return state + 1;
 		case 'decrement':
-			if (state === 1) return;
+			if (state === 1) return state;
 			return state - 1;
 		default:
 			throw new Error();

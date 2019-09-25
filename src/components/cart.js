@@ -2,53 +2,6 @@ import React from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
 import { Button, CartCounter } from '.';
 
-const CartProducts = {
-	hp123: {
-		product: {
-			productId: 'hp123',
-			name:
-				'HP Notebook -15 - Intel Core I3 - 4gb Ram - 1tb Hdd - Wins 10',
-			price: '148,000',
-			formerPrice: '180,000',
-			img: 'https://i.imgur.com/1A9qbNK.jpg',
-		},
-		quantity: 1,
-	},
-	hp124: {
-		product: {
-			productId: 'hp124',
-			name:
-				'Lenovo Ideapad 330 - Intel Core I3 - 8th Gen - 8130u - 15.6 - 4GB RAM, 1TB HDD - Win 10',
-			price: '140,000',
-			formerPrice: '160,000',
-			img: 'https://i.imgur.com/eDYBPzi.jpg',
-		},
-		quantity: 2,
-	},
-	hp125: {
-		product: {
-			productId: 'hp124',
-			name:
-				'Lenovo Ideapad 330 - Intel Core I3 - 8th Gen - 8130u - 15.6 - 4GB RAM, 1TB HDD - Win 10',
-			price: '140,000',
-			formerPrice: '160,000',
-			img: 'https://i.imgur.com/eDYBPzi.jpg',
-		},
-		quantity: 2,
-	},
-	hp126: {
-		product: {
-			productId: 'hp124',
-			name:
-				'Lenovo Ideapad 330 - Intel Core I3 - 8th Gen - 8130u - 15.6 - 4GB RAM, 1TB HDD - Win 10',
-			price: '140,000',
-			formerPrice: '160,000',
-			img: 'https://i.imgur.com/eDYBPzi.jpg',
-		},
-		quantity: 2,
-	},
-};
-
 const CartItem = ({ data, setCartingList, parent }) => {
 	return (
 		<Col sm={12} className="Cart__item">
