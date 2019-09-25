@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash';
 import { Row, Col, Spinner } from 'react-bootstrap';
 import { Button } from '.';
 
-const Product = ({ data }) => {
+const Product = ({ data, setCartingList }) => {
 	return (
 		<Col md={3} className="items">
 			<div className="product">
@@ -21,7 +21,11 @@ const Product = ({ data }) => {
 				</div>
 				<Button
 					onClick={() => {
-						console.log(data.productId);
+						console.log('added');
+						setCartingList({
+							type: 'Add',
+							payload: data,
+						});
 					}}
 				>
 					Add To Cart
@@ -31,7 +35,7 @@ const Product = ({ data }) => {
 	);
 };
 
-export const ProductListing = ({ data }) => {
+export const ProductListing = ({ data, setCartingList }) => {
 	if (isEmpty(data)) {
 		return (
 			<Row style={{ width: '100%', height: '70vh' }} className="loader">
@@ -44,7 +48,13 @@ export const ProductListing = ({ data }) => {
 	return (
 		<Row>
 			{data.map(item => {
-				return <Product data={item} key={item.productId} />;
+				return (
+					<Product
+						data={item}
+						key={item.productId}
+						setCartingList={setCartingList}
+					/>
+				);
 			})}
 		</Row>
 	);

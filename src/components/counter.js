@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 const initialState = { count: 1 };
 
@@ -14,8 +14,22 @@ function reducer(state, action) {
 	}
 }
 
-export const CartCounter = () => {
+export const CartCounter = ({ setCartingList, productId, count }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+
+	// useEffect(
+	// 	() => {
+	// 		async function UpdateCount() {
+	// 			setCartingList({
+	// 				type: 'QuantityChange',
+	// 				productId,
+	// 				payload: state,
+	// 			});
+	// 		}
+	// 		setTimeout(fetchData);
+	// 	},
+	// 	[state.count]
+	// );
 
 	return (
 		<div className="Cart__counter">

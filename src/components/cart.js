@@ -47,20 +47,9 @@ const CartProducts = {
 		},
 		quantity: 2,
 	},
-	hp126: {
-		product: {
-			productId: 'hp124',
-			name:
-				'Lenovo Ideapad 330 - Intel Core I3 - 8th Gen - 8130u - 15.6 - 4GB RAM, 1TB HDD - Win 10',
-			price: '140,000',
-			formerPrice: '160,000',
-			img: 'https://i.imgur.com/eDYBPzi.jpg',
-		},
-		quantity: 2,
-	},
 };
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, setCartingList, parent }) => {
 	return (
 		<Col sm={12} className="Cart__item">
 			<div className="Cart__product-description">
@@ -73,12 +62,18 @@ const CartItem = ({ data }) => {
 				</div>
 			</div>
 			<div className="Cart__item-bottom">
-				<CartCounter intitial={data.quanity} />
+				<CartCounter
+					intitial={data.quanity}
+					setCartingList={setCartingList}
+				/>
 				<div>
 					<Button
 						onClick={() => {
-							delete CartProducts[data.product.productId];
-							console.log(CartProducts);
+							setCartingList({
+								type: 'Delete',
+								productId: data.product.productId,
+							});
+							console.log(parent);
 						}}
 					>
 						X Remove Item
@@ -89,11 +84,17 @@ const CartItem = ({ data }) => {
 	);
 };
 
-export const Cart = ({ show, handleClose, handleShow }) => {
-	const keys = Object.keys(CartProducts);
+export const Cart = ({
+	show,
+	handleClose,
+	handleShow,
+	setCartingList,
+	cartinglist,
+}) => {
+	const keys = Object.keys(cartinglist);
 
 	return (
-		<Modal show={true} onHide={handleClose} className="customModal">
+		<Modal show={show} onHide={handleClose} className="customModal">
 			<Modal.Header closeButton>
 				<Modal.Title>Cart Overview</Modal.Title>
 			</Modal.Header>
@@ -101,7 +102,12 @@ export const Cart = ({ show, handleClose, handleShow }) => {
 				<Row>
 					{keys.map(item => {
 						return (
-							<CartItem data={CartProducts[item]} key={item} />
+							<CartItem
+								data={cartinglist[item]}
+								key={item}
+								setCartingList={setCartingList}
+								parent={cartinglist}
+							/>
 						);
 					})}
 				</Row>
