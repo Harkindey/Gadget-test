@@ -30,9 +30,9 @@ function reducer(state, action) {
 		case 'QuantityChange':
 			return {
 				...state,
-				[action.payload.productId]: {
-					...state[action.payload.productId],
-					quantity: action.payload.quantity,
+				[action.productId]: {
+					...state[action.productId],
+					quantity: action.quantity,
 				},
 			};
 		case 'Delete':

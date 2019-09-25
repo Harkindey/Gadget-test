@@ -63,8 +63,9 @@ const CartItem = ({ data, setCartingList, parent }) => {
 			</div>
 			<div className="Cart__item-bottom">
 				<CartCounter
-					intitial={data.quanity}
+					productId={data.product.productId}
 					setCartingList={setCartingList}
+					count={data.quantity}
 				/>
 				<div>
 					<Button
