@@ -91,7 +91,8 @@ export const Cart = ({
 			</Modal.Body>
 			<Modal.Footer className="customModal__Footer">
 				<div className="Cart__Subtotal">
-					<p>SubTotal</p> <p>&#8358; {subtotal}</p>
+					<p>SubTotal</p>{' '}
+					<p>&#8358; {subtotal.toLocaleString('en')}</p>
 				</div>
 				<Button onClick={() => {}}>Checkout</Button>
 			</Modal.Footer>

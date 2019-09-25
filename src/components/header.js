@@ -11,11 +11,11 @@ export const Header = ({ handleShow, cartinglist }) => {
 					<img src={Logo} alt="Debra Grace" />
 				</Col>
 				<Col>
-					<div className="cartButton" onClick={handleShow}>
-						<div className="cartButton__box">
-							<Cart width={30} fill="#fff" /> <p>My Cart</p>
-							<span className="cartButton__number">
-								<h6>{Object.keys(cartinglist).length}</h6>
+					<div className="cartButton">
+						<div onClick={handleShow} style={{ cursor: 'pointer' }}>
+							<Cart width={30} />
+							<span class="badge badge-warning" id="lblCartCount">
+								{Object.keys(cartinglist).length}
 							</span>
 						</div>
 					</div>
