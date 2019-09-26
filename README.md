@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Also used Netify build for continous integration
+Also used Netify build for continous integration.
+
 Deployed at [Gadget](https://gadget.netlify.com/)
 
 `git clone git@github.com:Harkindey/Gadget-test.git`
