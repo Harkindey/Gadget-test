@@ -14,7 +14,10 @@ export const Header = ({ handleShow, cartinglist }) => {
 					<div className="cartButton">
 						<div onClick={handleShow} style={{ cursor: 'pointer' }}>
 							<Cart width={30} />
-							<span class="badge badge-warning" id="lblCartCount">
+							<span
+								className="badge badge-warning"
+								id="lblCartCount"
+							>
 								{Object.keys(cartinglist).length}
 							</span>
 						</div>

@@ -61,11 +61,13 @@ function App() {
 	const handleShow = () => setCartState(true);
 
 	useEffect(() => {
-		async function fetchData() {
+		const fetched = setTimeout(async () => {
 			const result = await Api.get();
 			setProducts(result.data);
-		}
-		setTimeout(fetchData, 5000);
+		}, 5000);
+		return () => {
+			clearTimeout(fetched);
+		};
 	}, []);
 
 	return (
