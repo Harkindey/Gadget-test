@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
-import { Button, CartCounter } from '.';
+import { Button, CartCounter } from '../';
 
 const CartItem = ({ data, setCartingList, parent }) => {
 	const addDefaultSrc = ev => {

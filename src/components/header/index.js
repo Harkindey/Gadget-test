@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Logo from './image/logo3.png';
-import { ReactComponent as Cart } from './svg/cart.svg';
+import Logo from '../../assets/image/logo3.png';
+import { ReactComponent as Cart } from '../../assets/svg/cart.svg';
 
 export const Header = ({ handleShow, cartinglist }) => {
 	return (

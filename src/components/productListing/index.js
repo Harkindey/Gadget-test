@@ -1,7 +1,7 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
 import { Row, Col, Spinner } from 'react-bootstrap';
-import { Button } from '.';
+import { Button } from '..';
 
 const Product = ({ data, setCartingList }) => {
 	const addDefaultSrc = ev => {
