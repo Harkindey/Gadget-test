@@ -16,9 +16,9 @@ const Product = ({ data, setCartingList }) => {
 				<div className="product__description">
 					<p className="product__title">{data.name}</p>
 					<div className="product__amount">
-						<p>&#8358;{data.price.toLocaleString('en')}</p>{' '}
+						<p>₦{data.price.toLocaleString('en')}</p>{' '}
 						<p className="formerAmount">
-							&#8358;{data.formerPrice.toLocaleString('en')}
+							₦{data.formerPrice.toLocaleString('en')}
 						</p>
 					</div>
 				</div>

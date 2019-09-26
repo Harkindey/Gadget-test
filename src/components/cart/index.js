@@ -18,7 +18,7 @@ const CartItem = ({ data, setCartingList, parent }) => {
 				</div>
 				<div className="Cart__product-text">
 					<p>{data.product.name}</p>
-					<p> &#8358; {data.product.price.toLocaleString('en')}</p>
+					<p> ₦ {data.product.price.toLocaleString('en')}</p>
 				</div>
 			</div>
 			<div className="Cart__item-bottom">
@@ -92,7 +92,9 @@ export const Cart = ({
 			<Modal.Footer className="customModal__Footer">
 				<div className="Cart__Subtotal">
 					<p>SubTotal</p>{' '}
-					<p>&#8358; {subtotal.toLocaleString('en')}</p>
+					<p data-testid="subtotal">
+						₦ {subtotal.toLocaleString('en')}
+					</p>
 				</div>
 				<Button onClick={() => {}}>Checkout</Button>
 			</Modal.Footer>
