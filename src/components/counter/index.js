@@ -34,13 +34,17 @@ export const CartCounter = ({ setCartingList, productId, count }) => {
 			<button
 				onClick={() => dispatch({ type: 'decrement' })}
 				className="decrement"
+				data-testid="decrement"
 			>
 				-
 			</button>
-			<div className="count">{state}</div>
+			<div className="count" data-testid="state">
+				{state}
+			</div>
 			<button
 				onClick={() => dispatch({ type: 'increment' })}
 				className="increment"
+				data-testid="increment"
 			>
 				+
 			</button>

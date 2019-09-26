@@ -17,6 +17,7 @@ export const Header = ({ handleShow, cartinglist }) => {
 							<span
 								className="badge badge-warning"
 								id="lblCartCount"
+								data-testid="cart"
 							>
 								{Object.keys(cartinglist).length}
 							</span>
